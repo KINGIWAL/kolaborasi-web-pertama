@@ -1,0 +1,228 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #181818;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    background-color: #333;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+ul li a:hover {
+    background-color: #555;
+}
+
+.Baris_pertama {
+    background-color: #202020;
+    padding: 10px 0;
+}
+
+.Baris_kedua {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #202020;
+    border-bottom: 2px solid #333;
+}
+
+.Baris_kedua div {
+    margin: 0 10px;
+}
+
+
+.Baris_kedua input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.Baris_ketiga {
+    background-color: #333;
+    height: 300px;
+    margin: 10px 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #888;
+    font-size: 20px;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+/* Gambar slide */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    /* Semua gambar di luar layar */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    /* Tidak terlihat */
+}
+
+.slide.active {
+    left: 0;
+    /* Gambar aktif ditampilkan */
+    opacity: 1;
+    /* Gambar terlihat */
+}
+
+/* Tombol navigasi */
+button.prev,
+button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+button.prev:hover,
+button.next:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+.Baris_keempat {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+
+
+.Baris_keempat div {
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1;
+}
+
+.Baris_keempat img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.Baris_kelima {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin: 20px;
+}
+
+.Baris_kelima div {
+    background-color: #333;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.Baris_kelima img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.user {
+    text-decoration: none;
+    color: white;
+}
+
+.Baris_ketiga img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Card (Baris_keempat) lebih spesifik */
+.Baris_keempat {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Baris_keempat:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsivitas untuk layar kecil */
+@media (max-width: 768px) {
+    .Baris_keempat {
+        max-width: 100%;
+        padding: 10px;
+    }
+}
+
+/* Styling tombol secara umum */
+button {
+    font-family: inherit;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Efek hover untuk user link */
+.user:hover {
+    color: #ddd;
+    text-decoration: underline;
+}
