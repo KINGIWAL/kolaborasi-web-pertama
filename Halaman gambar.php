@@ -9,7 +9,7 @@ require "function.php";
 
 $id = $_GET["id"];
 
-$penjual = query("SELECT * FROM penjual WHERE id = $id")[0];
+$penjual = query("SELECT * FROM barang_jualan WHERE id = $id")[0];
 ?>
 <!DOCTYPE html>
 <html lang="en">

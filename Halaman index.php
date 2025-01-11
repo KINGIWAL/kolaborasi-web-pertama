@@ -82,12 +82,12 @@ $barang = query("SELECT * FROM barang_jualan ORDER BY id DESC ");
             padding: 10px;
             border-radius: 5px;
             top: 30px;
-            z-index: 10;
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         }
 
         .Baris_kedua .dropdown:hover .dropdown-content {
             display: block;
+            z-index: 100;
         }
 
         .span {
