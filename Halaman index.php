@@ -10,7 +10,8 @@ if (isset($_POST["submit"])) {
 }
 
 require "function.php";
-$barang = query("SELECT * FROM penjual ORDER BY id DESC ");
+
+$barang = query("SELECT * FROM barang_jualan ORDER BY id DESC ");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -220,22 +221,21 @@ $barang = query("SELECT * FROM penjual ORDER BY id DESC ");
             }
         }
 
-        .user{
+        .user {
             background-color: green;
             border-radius: 5px;
-            transition: ease-in-out background-color 0.3s ;
+            transition: ease-in-out background-color 0.3s;
         }
-        
-        .user:hover{
-            background-color:rgb(4, 53, 13);
+
+        .user:hover {
+            background-color: rgb(4, 53, 13);
         }
-        
-        .user a{
+
+        .user a {
             text-decoration: none;
             color: white;
             padding: 30px;
         }
-        
     </style>
 </head>
 
@@ -274,14 +274,12 @@ $barang = query("SELECT * FROM penjual ORDER BY id DESC ");
         </div>
         <div><a href="keranjang.php" class="keranjang">Keranjang</a></div>
         <div class="user">
-            <a href="Login user.php" >Login</a>
+            <a href="Login user.php">Login</a>
         </div>
         <div class="user">
-            <a href="Registrasi user.php" >Daftar</a>
+            <a href="Registrasi user.php">Daftar</a>
         </div>
     </div>
-
-
     <div class="Baris_keempat">
         <?php foreach ($barang as $dj): ?>
             <div>
