@@ -93,12 +93,11 @@ $penjual = query("SELECT * FROM barang_jualan WHERE id = $id")[0];
         <p><?= $penjual["Barang_Jualan"] ?></p>
         <p><?= $penjual["Keterangan_barang"] ?></p>
         <p>Jumlah stok : <?= $penjual["Jumlah_Barang"] ?></p>
-        <p>Toko : <?= $penjual["Toko_penjual"] ?></p>
-        <p>Alamat : <?= $penjual["Alamat_penjual"] ?></p>
         <p>Harga : <?= $penjual["Harga_barang"] ?></p>
         <div class="beli">
             <div class="ba"><a href="Pesanan.php">Pesan</a></div>
             <div class="bb"><a href="keranjang.php">+ Keranjang</a></div>
+            <div><a href="Toko penjual.php">Kunjungi toko</a></div>
         </div>
     </div>
 </body>

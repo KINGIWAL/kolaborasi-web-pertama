@@ -89,7 +89,7 @@ function registrasi_penjual($data){
     $password2 = mysqli_real_escape_string($db,$data["password2"]);
 
 //cek Nama sudah ada atau belum
-$result = mysqli_query($db,"SELECT Nama FROM user WHERE Nama = '$nama'");
+$result = mysqli_query($db,"SELECT Nama FROM penjual WHERE Nama = '$nama'");
 if (mysqli_fetch_assoc($result)){
     echo "<script>
     alert('Nama sudah terdaftar ')

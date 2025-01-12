@@ -7,7 +7,7 @@ if (isset($_POST["register"])){
         alert('Penjual baru berhasil ditambahkan');
         </script>";
         $_SESSION["Login"] = true;
-        header("Location: Halaman index.php");
+        header("Location: Halaman penjual.php");
         exit;
     }else{
         echo mysqli_error($db);
@@ -32,11 +32,27 @@ if (isset($_POST["register"])){
         </li>
         <li>
             <label for="email">Email :</label>
-            <input type="text" name="email" id="email">
+            <input type="text" name="email" id="email" required>
         </li>
         <li>
             <label for="nomor">Nomor Wa/Telp</label>
-            <input type="text" name="nomor" id="nomor">
+            <input type="text" name="nomor" id="nomor" required>
+        </li>
+        <li>
+            <label for="Alamat">Alamat :</label>
+            <input type="text" name="Alamat" id="Alamat" required>
+        </li>
+        <li>
+            <label for="Toko">Nama toko :</label>
+            <input type="text" name="Toko" id="Toko" required>
+        </li>
+        <li>
+            <label for="Kota">Kota :</label>
+            <input type="text" name="Kota" id="Kota" required>
+        </li>
+        <li>
+            <label for="Photo_profil">Photo profil :</label>
+            <input type="text" name="Photo_profil" id="Photo_profil" required>
         </li>
         <li>
             <label for="password">Password :</label>
