@@ -1,5 +1,5 @@
 <?php 
-$db = mysqli_connect("127.0.0.1","root","muhammad ilham 2372005","admin_Web");
+$db = mysqli_connect("127.0.0.1","root","muhammadilham2372005","web_pertama");
 
 function query($query){
     global $db;
