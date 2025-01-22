@@ -1,15 +1,25 @@
 <?php
-session_start();
 require "function.php";
 if (!isset($_SESSION["Login"])) {
     header("Location: Login penjual.php");
     exit;
 }
 
-if (isset($_POST["submit"])) {
-    $kategori = cari($_POST["cari"]);
+if (isset($_POST["submit_1"])) {
+    if (tambah_jualan($_POST) > 0) {
+        echo "
+        <script>
+        alert ('Barang jualan berhasil ditambahkan!');
+        </script>
+    ";
+    } else {
+        echo "
+    <script>
+        alert ('Barang jualan gagal ditambahkan!');
+        </script>
+    ";
+    }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -23,31 +33,43 @@ if (isset($_POST["submit"])) {
 </head>
 
 <body>
-    <ul>
-        <li>
-            <label for="Kategori">Kategori :</label>
-            <input type="text" name="Kategori" id="Kategori" required>
-        </li>
-        <li>
-            <label for="Barang_Jualan">Nama barang :</label>
-            <input type="text" name="Barang_Jualan" id="Barang_Jualan" required>
-
-        <li>
-            <label for="Jumlah_Barang">Jumlah barang :</label>
-            <input type="number" name="Jumlah_Barang" id="Jumlah_Barang" required>
-        </li>
-        <li>
-            <label for="Harga_barang">Harga barang :</label>
-            <input type="number" name="Harga_barang" id="Harga_barang" required>
-        </li>
-        <li>
-            <label for="Gambar_barang">Gambar barang :</label>
-            <input type="number" name="Gambar_barang" id="Gambar_barang" required>
-        </li>
-        <li>
-            <button type="submit">submit</button>
-        </li>
-    </ul>
+    <form action="" method="post" enctype="multipart/form-data">
+        <ul>
+            <li>
+                <label for="Kategori">Kategori :</label>
+                <input type="text" name="Kategori" id="Kategori" required>
+            </li>
+            <br>
+            <li>
+                <label for="Nama_barang">Nama barang :</label>
+                <input type="text" name="Nama_barang" id="Nama_barang" required>
+            </li>
+            <br>
+            <li>
+                <label for="Keterangan_barang">Keterangan barang :</label>
+                <input type="text" name="Keterangan_barang" id="Keterangan_barang" required>
+            </li>
+            <br>
+            <li>
+                <label for="Jumlah_Barang">Jumlah barang :</label>
+                <input type="number" name="Jumlah_Barang" id="Jumlah_Barang" required>
+            </li>
+            <br>
+            <li>
+                <label for="Harga_barang">Harga barang :</label>
+                <input type="number" name="Harga_barang" id="Harga_barang" required>
+            </li>
+            <br>
+            <li>
+                <label for="Gambar_barang">Gambar barang :</label>
+                <input type="file" name="Gambar_barang" id="Gambar_barang" required>
+            </li>
+            <br>
+            <li>
+                <button type="submit" name="submit_1">submit</button>
+            </li>
+        </ul>
+    </form>
 </body>
 
 </html>

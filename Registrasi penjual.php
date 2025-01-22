@@ -23,7 +23,7 @@ if (isset($_POST["register"])){
 </head>
 <body>
 <h1>Halaman Registrasi</h1>
-<form action="" method="post" autocomplete="off">
+<form action="" method="post" enctype="multipart/form-data">
     <ul>
         <li>
             <label for="nama">Username :</label>
@@ -51,7 +51,7 @@ if (isset($_POST["register"])){
         </li>
         <li>
             <label for="Photo_profil">Photo profil :</label>
-            <input type="text" name="Photo_profil" id="Photo_profil" required>
+            <input type="file" name="Photo_profil" id="Photo_profil" required>
         </li>
         <li>
             <label for="password">Password :</label>

@@ -26,10 +26,6 @@ $barang = query("SELECT * FROM barang_jualan ORDER BY id DESC ");
     <div class="Baris_pertama">
         <ul>
             <li><a href="tentang_toko.php">Tentang Toko</a></li>
-            <li><a href="mitra_toko.php">Mitra Toko</a></li>
-            <li><a href="Halaman Materi seller.php">Mulai Berjualan</a></li>
-            <li><a href="promo.php">Promo</a></li>
-            <li><a href="download.php">Download</a></li>
         </ul>
     </div>
 
