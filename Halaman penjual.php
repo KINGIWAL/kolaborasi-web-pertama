@@ -1,4 +1,9 @@
+<!-- Di halaman ini si penjual bisa : -->
+<!-- menginputkan barang jualan sesuai kategori -->
+<!-- Bisa melihat barangnya ditampilkan  -->
+<!-- Bisa juga melihat barang yang dijual oleh dirinya sendiri dengan sesuai kategori -->
 <?php
+session_start();
 require "function.php";
 if (!isset($_SESSION["Login"])) {
     header("Location: Login penjual.php");
@@ -33,6 +38,7 @@ if (isset($_POST["submit_1"])) {
 </head>
 
 <body>
+    <h1>Menambahkan Barang Jualan</h1>
     <form action="" method="post" enctype="multipart/form-data">
         <ul>
             <li>

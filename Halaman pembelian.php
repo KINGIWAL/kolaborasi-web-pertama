@@ -1,3 +1,4 @@
+<!-- Halaman ini hanya untuk mengetahui siapa saja yang membeli -->
 <?php 
 session_start();
 if(!isset($_SESSION["Login"])) {

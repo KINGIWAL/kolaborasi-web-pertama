@@ -245,4 +245,25 @@ function upload_2()
     move_uploaded_file($tmpName, 'img_penjual/' . $namaFileBaru);
     return $namaFileBaru;
 }
+
+function Add_item_keranjang($data)
+{
+    global $db;
+    if (!isset($_SESSION["id_barang"]) || !isset($_SESSION["id_user"])) {
+        return 0; 
+    }
+    $product_id =  $_SESSION["id_barang"] ;
+    $user_id = $_SESSION["id_user"];
+
+    $stmt = $db->prepare("INSERT INTO item_keranjang (product_id, id_user) VALUES (?, ?)");
+    $stmt->bind_param("ii", $product_id, $user_id);
+    
+    if ($stmt->execute()) {
+        return $stmt->affected_rows;
+    } else {
+        echo "Error: " . $stmt->error;
+        return 0;
+    }
+}
+
 ?>

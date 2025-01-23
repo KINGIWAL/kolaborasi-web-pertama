@@ -10,6 +10,25 @@ require "function.php";
 $id = $_GET["id"];
 
 $penjual = query("SELECT * FROM barang_jualan WHERE id = $id")[0];
+
+if (isset($_POST["submit_1"])) {
+    $id_barang = $_POST["id"];
+    $_SESSION["id_barang"] = $id_barang;
+
+    if (Add_item_keranjang($_POST) > 0) {
+        echo "
+        <script>
+        alert ('Barang berhasil ditambahkan!');
+        </script>
+    ";
+    } else {
+        echo "
+    <script>
+        alert ('Barang gagal ditambahkan!');
+        </script>
+    ";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +37,6 @@ $penjual = query("SELECT * FROM barang_jualan WHERE id = $id")[0];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Gambar</title>
-    <link rel="stylesheet" href="Halaman gambar.css">
 </head>
 
 <body>
@@ -30,7 +48,10 @@ $penjual = query("SELECT * FROM barang_jualan WHERE id = $id")[0];
         <p>Harga : <?= $penjual["Harga_barang"] ?></p>
         <div class="beli">
             <div class="ba"><a href="Pesanan.php">Pesan</a></div>
-            <div class="bb"><a href="keranjang.php">+ Keranjang</a></div>
+            <form action="" method="post">
+                <input type="hidden" name="id" value="<?= $penjual['id'] ?>">
+                <button type="submit" name="submit_1" class="bb">+ Keranjang</button>
+            </form>
             <div><a href="Toko penjual.php">Kunjungi toko</a></div>
         </div>
     </div>
