@@ -265,5 +265,9 @@ function Add_item_keranjang($data)
         return 0;
     }
 }
-
+function hapus($id){
+    global $db;
+    mysqli_query($db,"DELETE FROM penjual WHERE id = $id");
+    return mysqli_affected_rows($db);
+}
 ?>

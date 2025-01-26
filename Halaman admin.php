@@ -6,15 +6,14 @@
 <!-- 5. fungsi untuk mengontrol user  -->
 <!-- 6. fungsi untuk mengontrol penjual -->
 <?php
+require "function.php";
 session_start();
 if (!isset($_SESSION["Login"])) {
     header("Location: Login admin.php");
     exit;
 }
-
-require 'function.php';
 $admin = query("SELECT * FROM admin");
-$user =  query("SELECT * FROM user");
+$user = query("SELECT * FROM user");
 $penjual = query("SELECT * FROM penjual");
 
 ?>
@@ -25,6 +24,12 @@ $penjual = query("SELECT * FROM penjual");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Admin</title>
+    <style>
+        .img_penjual{
+            width: 80px;
+            height: 80px;
+        }
+    </style>
 </head>
 
 <body>
@@ -88,7 +93,11 @@ $penjual = query("SELECT * FROM penjual");
                 <td><?= $pjl["Alamat"]; ?></td>
                 <td><?= $pjl["Toko"]; ?></td>
                 <td><?= $pjl["Kota"]; ?></td>
-                <td><?= $pjl["Photo_profil"]; ?></td>
+                <td><img src="img_penjual/<?= $pjl["Photo_profil"]; ?>" alt="" class="img_penjual"></td>
+                <td>
+                    <a href="hapus.php?id=<?= $pjl['id']; ?>" onclick="return confirm('Apakah anda yakin!');"
+                    class="hapus">Hapus</a>
+                </td>
             </tr>
             <?php $i++; ?>
         <?php endforeach; ?>

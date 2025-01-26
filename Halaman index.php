@@ -1,3 +1,8 @@
+<!-- penambahan fitur  -->
+ <!-- 1. pemilihan kategori  -->
+ <!-- 2. fitur pencarian  -->
+ <!-- 3. tampilan promosi/yang lainnya  -->
+ <!--   -->
 <?php
 session_start();
 if (!isset($_SESSION["Login"])) {
