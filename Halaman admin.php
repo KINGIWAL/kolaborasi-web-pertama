@@ -1,7 +1,5 @@
 <!-- Yang harus ada di Halaman admin.php -->
 <!-- 1. harus ada data admin  -->
-<!-- 2. fungsi untuk menghapus izin admin supaya tidak bisa lagi mengakses -->
-<!-- 3. fungsi untuk menambah admin  -->
 <!-- 4. fungsi untuk mengontrol pembelian  -->
 <!-- 5. fungsi untuk mengontrol user  -->
 <!-- 6. fungsi untuk mengontrol penjual -->
@@ -12,10 +10,65 @@ if (!isset($_SESSION["Login"])) {
     header("Location: Login admin.php");
     exit;
 }
+if (isset($_POST["submit_1"])) {
+    if (isset($_POST["id"])) {
+        $id = $_POST["id"];
+        if (hapus_penjual($id) > 0) {
+            echo "
+            <script>
+                alert('Data berhasil dihapus!');
+                document.location.href = 'Halaman admin.php';
+            </script>
+            ";
+        } else {
+            echo "
+            <script>
+                alert('Data gagal dihapus!');
+                document.location.href = 'Halaman admin.php';
+            </script>
+            ";
+        }
+    } else {
+        echo "
+        <script>
+            alert('ID tidak ditemukan!');
+            document.location.href = 'Halaman admin.php';
+        </script>
+        ";
+    }
+}
+
+if (isset($_POST["submit_2"])) {
+    if (isset($_POST["id"])) {
+        $id = $_POST["id"];
+        if (hapus_user($id) > 0) {
+            echo "
+            <script>
+                alert('Data berhasil dihapus!');
+                document.location.href = 'Halaman admin.php';
+            </script>
+            ";
+        } else {
+            echo "
+            <script>
+                alert('Data gagal dihapus!');
+                document.location.href = 'Halaman admin.php';
+            </script>
+            ";
+        }
+    } else {
+        echo "
+        <script>
+            alert('ID tidak ditemukan!');
+            document.location.href = 'Halaman admin.php';
+        </script>
+        ";
+    }
+}
+
 $admin = query("SELECT * FROM admin");
 $user = query("SELECT * FROM user");
 $penjual = query("SELECT * FROM penjual");
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +78,7 @@ $penjual = query("SELECT * FROM penjual");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Admin</title>
     <style>
-        .img_penjual{
+        .img_penjual {
             width: 80px;
             height: 80px;
         }
@@ -66,6 +119,12 @@ $penjual = query("SELECT * FROM penjual");
                 <td><?= $ur["Nama"]; ?></td>
                 <td><?= $ur["Email"]; ?></td>
                 <td><?= $ur["Nomor"]; ?></td>
+                <td>
+                    <form action="" method="post">
+                        <input type="hidden" name="id" value=" <?= $pjl['id']; ?>">
+                        <button type="submit" name="submit_2">Hapus</button>
+                    </form>
+                </td>
             </tr>
             <?php $i++; ?>
         <?php endforeach; ?>
@@ -95,13 +154,16 @@ $penjual = query("SELECT * FROM penjual");
                 <td><?= $pjl["Kota"]; ?></td>
                 <td><img src="img_penjual/<?= $pjl["Photo_profil"]; ?>" alt="" class="img_penjual"></td>
                 <td>
-                    <a href="hapus.php?id=<?= $pjl['id']; ?>" onclick="return confirm('Apakah anda yakin!');"
-                    class="hapus">Hapus</a>
+                    <form action="" method="post">
+                        <input type="hidden" name="id" value=" <?= $pjl['id']; ?>">
+                        <button type="submit" name="submit_1">Hapus</button>
+                    </form>
                 </td>
             </tr>
             <?php $i++; ?>
         <?php endforeach; ?>
     </table>
+
 </body>
 
 </html>
